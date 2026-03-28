@@ -1,0 +1,107 @@
+// ============================================================
+// NEXUS OS — Type Definitions
+// Mirrors the PostgreSQL database schema for frontend use
+// ============================================================
+
+// ---- Enums ----
+
+export enum IssueStatus {
+  BACKLOG = "BACKLOG",
+  TODO = "TODO",
+  IN_PROGRESS = "IN_PROGRESS",
+  IN_REVIEW = "IN_REVIEW",
+  DONE = "DONE",
+}
+
+export enum Priority {
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+  HIGH = "HIGH",
+  CRITICAL = "CRITICAL",
+}
+
+export enum DocStatus {
+  DRAFT = "DRAFT",
+  PUBLISHED = "PUBLISHED",
+}
+
+export enum DocFormat {
+  RICH = "rich",
+  MARKDOWN = "markdown",
+}
+
+export enum CertStatus {
+  ACTIVE = "ACTIVE",
+  EXPIRING_SOON = "EXPIRING_SOON",
+  EXPIRED = "EXPIRED",
+}
+
+export enum UserRole {
+  ADMIN = "ADMIN",
+  VIEWER = "VIEWER",
+}
+
+// ---- Interfaces ----
+
+export interface User {
+  id: string;
+  email: string;
+  fullName: string;
+  role: UserRole;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Issue {
+  id: string;
+  issueKey: string;
+  title: string;
+  description: string;
+  status: IssueStatus;
+  priority: Priority;
+  project: string;
+  tags: string[];
+  dueDate: string | null;
+  createdBy: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Doc {
+  id: string;
+  title: string;
+  content: Record<string, unknown> | null;
+  markdown: string | null;
+  format: DocFormat;
+  status: DocStatus;
+  project: string;
+  topic: string;
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Certification {
+  id: string;
+  name: string;
+  issuer: string;
+  issuedDate: string;
+  expiryDate: string | null;
+  status: CertStatus;
+  reminderDays: number;
+  certFilePath: string | null;
+  notes: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+// ---- Dashboard Stats ----
+
+export interface DashboardStats {
+  totalIssues: number;
+  inProgress: number;
+  totalDocs: number;
+  expiringCerts: number;
+  issuesByStatus: Record<IssueStatus, number>;
+  issuesByPriority: Record<Priority, number>;
+}

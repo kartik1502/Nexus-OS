@@ -1,0 +1,23 @@
+{
+  "skill_name": "progress-tracker",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I've just finished setting up the Next.js dark mode with next-themes. Track our progress.",
+      "expected_output": "Appends a new entry to progressctx/changelog.md noting dark mode completion, and infers/asks for next steps.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Save the current state; we have a bug in the navbar where the dropdown isn't working on mobile, but otherwise the layout components are done. Next up we need to build the auth pages.",
+      "expected_output": "Appends an entry highlighting the navbar blocker, accomplished layout components, and upcoming auth requirement.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Log an update. Finished implementing the Prisma schema.",
+      "expected_output": "Appends an entry noting the Prisma schema is done.",
+      "files": []
+    }
+  ]
+}

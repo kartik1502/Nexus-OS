@@ -1,35 +1,42 @@
-# ✦ NEXUS Personal OS
+# Nexus OS — Intelligent Engineering Dashboard
 
-> *A self-hosted, full-stack personal productivity ecosystem built to replace expensive proprietary SaaS tooling.*
+Nexus OS is a high-performance, engineer-centric dashboard for managing complex software ecosystems. It specializes in automated repository analysis, microservices health tracking, and actionable roadmap generation.
 
-## Overview
+## 🚀 Key Features
 
-NEXUS is an all-in-one personal operating system that runs entirely on your own infrastructure — ensuring your data stays yours. It combines three core modules into a single, unified application:
+- **Microservices Ecosystem Hub:** View and manage multiple services within a single project view. Track health scores across your entire architecture.
+- **Deep-Dive Analysis:** Transform raw markdown reports into interactive dashboards.
+    - **Executive Summaries:** AI-parsed high-level service status.
+    - **Urgent Fixes:** Prioritized list of immediate security and stability actions.
+    - **Issue Deep Dive:** Collapsible stack of detailed findings, impacts, and recommended fixes.
+    - **Feature Roadmap:** Structured insights for logic improvements and future feature ideas.
+- **Service Management:** Seamlessly add or remove repositories from your microservices projects using custom, centered dialogs.
+- **Premium UI/UX:** Built with a "Linear-inspired" aesthetic featuring glassmorphism, dark-mode optimization, and smooth animations.
 
-- 🎯 **Issues Tracker**: Kanban board, list views, priority tracking, and status workflows for comprehensive task management.
-- 📝 **Documentation Manager**: Rich-text editing via Tiptap, full markdown support, and native PostgreSQL full-text search for tracking robust project knowledge.
-- 🏆 **Certification Manager**: Track your certifications, view graphical expiry countdowns, and receive automated email alerts.
+## 🛠️ Tech Stack
 
-## 🏗️ Technology Stack
-
-- **Frontend:** Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui.
-- **Backend:** Java 21, Spring Boot 3 *(In-progress)*.
-- **Database:** PostgreSQL 16 (Taking full advantage of JSONB, `tsvector` full-text search, and `pg_trgm`).
-- **Deployment:** Docker Compose (Single command orchestration).
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** Tailwind CSS + Lucide Icons
+- **Formatting:** React-Markdown + RemarkGFM
+- **Deployment:** Vercel
 
 ## 🚀 Getting Started
 
-*Note: Phase 1 frontend development is active. The backend API integration is slated for Phase 2.*
+1. **Install Dependencies:**
+   ```bash
+   cd frontend
+   npm install
+   ```
 
-### Running the Frontend locally:
-```bash
-cd frontend
-npm install
-npm run dev
-```
+2. **Run Development Server:**
+   ```bash
+   npm run dev
+   ```
 
-Then visit the interface at [http://localhost:3000](http://localhost:3000).
+3. **Analyze a Project:**
+   - Navigate to a project.
+   - Upload an analysis report (`.md`).
+   - Explore extracted insights and issues.
 
-## 📖 Deep Dive
-
-For a comprehensive breakdown of the application architecture, system design patterns, database schemas, and REST API endpoints, please check out the [NEXUS Project Documentation](./NEXUS-Project-Documentation.md).
+---
+Built with ❤️ by Antigravity AI.

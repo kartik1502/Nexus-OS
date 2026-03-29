@@ -378,3 +378,44 @@ export const mockCertifications: Certification[] = [
     updatedAt: "2026-03-20T08:00:00Z",
   },
 ];
+
+// ---- Projects ----
+
+export const mockProjects: import("./types").Project[] = [
+  {
+    id: "p1",
+    name: "Arya Banking Microservices",
+    description: "Core banking platform backend microservices. Handles user management, accounts, and transactions.",
+    isMicroservice: true,
+    repos: [
+      { id: "r1", name: "user-service", url: "https://github.com/arya-banking/user-service", analysisReport: null },
+      { id: "r2", name: "auth-service", url: "https://github.com/arya-banking/auth-service", analysisReport: null }
+    ],
+    analysisReport: null,
+    createdAt: "2026-03-01T10:00:00Z",
+    updatedAt: "2026-03-29T10:00:00Z"
+  },
+  {
+    id: "p2",
+    name: "NEXUS OS Frontend",
+    description: "Personal productivity ecosystem built with Next.js and Tailwind.",
+    isMicroservice: false,
+    repos: [
+      { id: "r3", name: "nexus-os-frontend", url: "https://github.com/nexus/nexus-os-frontend", analysisReport: null }
+    ],
+    analysisReport: {
+      healthScore: 9.2,
+      criticalIssues: 0,
+      majorIssues: 1,
+      minorIssues: 2,
+      executiveSummary: "The NEXUS OS Frontend is in a robust state with high performance and clean architecture.",
+      topFixes: ["Update dependencies", "Add more unit tests"],
+      detailedIssues: [],
+      featureInsights: [],
+      featureIdeas: [],
+      rawMarkdown: "# NEXUS OS Frontend Analysis\n\nLooking good."
+    },
+    createdAt: "2026-03-15T10:00:00Z",
+    updatedAt: "2026-03-29T10:00:00Z"
+  }
+];

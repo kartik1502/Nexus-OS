@@ -1,11 +1,12 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* ============================================================
    NEXUS OS — Design System
    Dark theme inspired by Linear / VS Code
    ============================================================ */
 
-@theme inline {
+@theme {
   /* ---- Typography ---- */
   --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-dm-mono);
@@ -65,68 +66,72 @@
   --topbar-height: 60px;
 }
 
-@layer base {
-  :root {
-    --bg-primary: #F8FAFC;
-    --bg-surface: #FFFFFF;
-    --bg-elevated: #F1F5F9;
-    --bg-sidebar: #F8FAFC;
-    --bg-hover: #E2E8F0;
-    --bg-active: #CBD5E1;
+:root, .light {
+  /* Premium modern layout: Sidebar white, Canvas light gray */
+  --bg-primary: #F8FAFC; 
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #F1F5F9;
+  --bg-sidebar: #FFFFFF;
+  --bg-hover: #F1F5F9;
+  --bg-active: #E2E8F0;
 
-    --border: #E2E8F0;
-    --border-hover: #CBD5E1;
-    --border-active: #94A3B8;
+  /* Refined, elegant structural lines */
+  --border: #E2E8F0;
+  --border-hover: #CBD5E1;
+  --border-active: #94A3B8;
 
-    --text-primary: #0F172A;
-    --text-secondary: #475569;
-    --text-muted: #64748B;
+  /* Deep crisp typography */
+  --text-primary: #020617;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
 
-    --accent: #4F46E5;
-    --accent-hover: #4338CA;
-    --accent-muted: #6366F1;
-    --accent-subtle: rgba(79, 70, 229, 0.08);
+  --accent: #4F46E5;
+  --accent-hover: #4338CA;
+  --accent-muted: #6366F1;
+  --accent-subtle: rgba(79, 70, 229, 0.08);
 
-    --success: #16A34A;
-    --warning: #D97706;
-    --danger: #DC2626;
-    --info: #2563EB;
-    
-    --shadow-card-val: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
-    --shadow-elevated-val: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
-    --shadow-glow-val: 0 0 20px rgba(79, 70, 229, 0.15);
-  }
+  /* Vivid semantic colors */
+  --success: #16A34A;
+  --warning: #D97706;
+  --danger: #DC2626;
+  --info: #2563EB;
+  
+  /* Subtler, more elegant shadows */
+  --shadow-card-val: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-elevated-val: 0 4px 12px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.03);
+  --shadow-glow-val: 0 0 20px rgba(79, 70, 229, 0.15);
+}
 
-  .dark {
-    --bg-primary: #0A0C10;
-    --bg-surface: #12141A;
-    --bg-elevated: #1A1D26;
-    --bg-sidebar: #0E1015;
-    --bg-hover: #1E2130;
-    --bg-active: #252838;
+.dark {
+  color-scheme: dark;
+  --bg-primary: #0A0C10;
+  --bg-surface: #12141A;
+  --bg-elevated: #1A1D26;
+  --bg-sidebar: #0E1015;
+  --bg-hover: #1E2130;
+  --bg-active: #252838;
 
-    --border: #1E2130;
-    --border-hover: #2A2E3F;
-    --border-active: #3A3F55;
+  --border: #1E2130;
+  --border-hover: #2A2E3F;
+  --border-active: #3A3F55;
 
-    --text-primary: #F0F1F3;
-    --text-secondary: #8B8FA3;
-    --text-muted: #555872;
+  --text-primary: #F0F1F3;
+  --text-secondary: #8B8FA3;
+  --text-muted: #555872;
 
-    --accent: #6366F1;
-    --accent-hover: #818CF8;
-    --accent-muted: #4F46E5;
-    --accent-subtle: rgba(99, 102, 241, 0.08);
+  --accent: #6366F1;
+  --accent-hover: #818CF8;
+  --accent-muted: #4F46E5;
+  --accent-subtle: rgba(99, 102, 241, 0.08);
 
-    --success: #22C55E;
-    --warning: #F59E0B;
-    --danger: #EF4444;
-    --info: #3B82F6;
-    
-    --shadow-card-val: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-elevated-val: 0 4px 16px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
-    --shadow-glow-val: 0 0 20px rgba(99, 102, 241, 0.15);
-  }
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --info: #3B82F6;
+  
+  --shadow-card-val: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-elevated-val: 0 4px 16px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-glow-val: 0 0 20px rgba(99, 102, 241, 0.15);
 }
 
 /* ---- Base ---- */

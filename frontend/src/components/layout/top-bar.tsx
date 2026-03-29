@@ -20,7 +20,14 @@ const pageTitles: Record<string, string> = {
 
 export function TopBar({ sidebarCollapsed }: TopBarProps) {
   const pathname = usePathname();
-  const title = pageTitles[pathname] ?? "NEXUS";
+  
+  let title = pageTitles[pathname];
+  if (!title) {
+    if (pathname.startsWith("/projects/")) title = "Project Dashboard";
+    else if (pathname.startsWith("/issues/")) title = "Issue Details";
+    else if (pathname.startsWith("/docs/")) title = "Document";
+    else title = "NEXUS";
+  }
 
   return (
     <header

@@ -111,3 +111,72 @@ export function getDashboardStats(): DashboardStats {
     issuesByPriority,
   };
 }
+
+// ---- Projects ----
+
+import { mockProjects } from "./mock-data";
+import { Project } from "./types";
+
+export function getProjects(): Project[] {
+  return mockProjects;
+}
+
+export function getProjectById(id: string): Project | undefined {
+  return mockProjects.find((p) => p.id === id);
+}
+
+// Mock save logic for analysis
+export function saveProjectAnalysis(id: string, analysis: import("./types").ProjectAnalysis, repoId?: string) {
+  const proj = mockProjects.find((p) => p.id === id);
+  if (proj) {
+    if (proj.isMicroservice && repoId) {
+       const repo = proj.repos.find(r => r.id === repoId);
+       if (repo) {
+         repo.analysisReport = analysis;
+       }
+    } else {
+       proj.analysisReport = analysis;
+    }
+    proj.updatedAt = new Date().toISOString();
+  }
+}
+
+export function createProject(project: Omit<Project, "id" | "createdAt" | "updatedAt">): Project {
+  const newProject: Project = {
+    ...project,
+    id: `p${Math.random().toString(36).substr(2, 9)}`,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  };
+  mockProjects.unshift(newProject);
+  return newProject;
+}
+
+export function addRepoToProject(projectId: string, name: string, url: string): import("./types").Repo | undefined {
+  const project = mockProjects.find(p => p.id === projectId);
+  if (project) {
+    const newRepo: import("./types").Repo = {
+      id: `r${Math.random().toString(36).substr(2, 9)}`,
+      name,
+      url,
+      analysisReport: null
+    };
+    project.repos.push(newRepo);
+    project.updatedAt = new Date().toISOString();
+    return newRepo;
+  }
+  return undefined;
+}
+
+export function deleteRepoFromProject(projectId: string, repoId: string): boolean {
+  const project = mockProjects.find(p => p.id === projectId);
+  if (project) {
+    const originalCount = project.repos.length;
+    project.repos = project.repos.filter(r => r.id !== repoId);
+    if (project.repos.length !== originalCount) {
+      project.updatedAt = new Date().toISOString();
+      return true;
+    }
+  }
+  return false;
+}

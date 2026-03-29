@@ -10,13 +10,13 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  default: "bg-bg-elevated text-text-secondary",
-  success: "bg-success/10 text-success",
-  warning: "bg-warning/10 text-warning",
-  danger: "bg-danger/10 text-danger",
-  info: "bg-info/10 text-info",
-  accent: "bg-accent/10 text-accent",
-  muted: "bg-bg-elevated text-text-muted",
+  default: "border border-border bg-bg-surface text-text-secondary shadow-sm",
+  success: "border border-success/20 bg-success/10 text-success",
+  warning: "border border-warning/20 bg-warning/10 text-warning",
+  danger: "border border-danger/20 bg-danger/10 text-danger",
+  info: "border border-info/20 bg-info/10 text-info",
+  accent: "border border-accent/20 bg-accent/10 text-accent",
+  muted: "border border-border bg-bg-elevated text-text-muted",
 };
 
 const dotColors: Record<BadgeVariant, string> = {

@@ -105,3 +105,61 @@ export interface DashboardStats {
   issuesByStatus: Record<IssueStatus, number>;
   issuesByPriority: Record<Priority, number>;
 }
+
+// ---- Projects ----
+
+export interface IssueDetail {
+  id: string; // e.g. CRIT-001
+  title: string;
+  severity: "CRITICAL" | "MAJOR" | "MINOR";
+  dimension: string;
+  location: string;
+  description: string;
+  impact: string;
+  fix: string;
+}
+
+export interface FeatureInsight {
+  name: string;
+  currentState: string;
+  improvement: string;
+}
+
+export interface FeatureIdea {
+  name: string;
+  value: string;
+  implementationHint: string;
+  complexity: "Low" | "Medium" | "High";
+  priority: "Low" | "Medium" | "High";
+}
+
+export interface ProjectAnalysis {
+  healthScore: number;
+  criticalIssues: number;
+  majorIssues: number;
+  minorIssues: number;
+  executiveSummary: string;
+  topFixes: string[];
+  detailedIssues: IssueDetail[];
+  featureInsights: FeatureInsight[];
+  featureIdeas: FeatureIdea[];
+  rawMarkdown: string;
+}
+
+export interface Repo {
+  id: string;
+  name: string;
+  url: string;
+  analysisReport: ProjectAnalysis | null;
+}
+
+export interface Project {
+  id: string;
+  name: string;
+  description: string;
+  isMicroservice: boolean;
+  repos: Repo[];
+  analysisReport: ProjectAnalysis | null;
+  createdAt: string;
+  updatedAt: string;
+}

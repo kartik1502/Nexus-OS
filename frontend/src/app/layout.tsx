@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { DM_Sans, DM_Mono } from "next/font/google";
-import { AppShell } from "@/components/layout/app-shell";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -34,9 +33,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${dmSans.variable} ${dmMono.variable} antialiased`}
     >
-      <body className="min-h-screen bg-bg-primary text-text-primary">
+      <body className="min-h-screen bg-bg-primary text-text-primary font-medium">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <AppShell>{children}</AppShell>
+          {children}
         </ThemeProvider>
       </body>
     </html>

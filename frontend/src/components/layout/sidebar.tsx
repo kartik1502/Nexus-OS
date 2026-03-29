@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Hexagon,
   Settings,
+  FolderGit2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +22,7 @@ interface SidebarProps {
 
 const navItems = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/projects", label: "Projects", icon: FolderGit2 },
   { href: "/issues", label: "Issues", icon: CircleDot },
   { href: "/docs", label: "Docs", icon: FileText },
   { href: "/certifications", label: "Certifications", icon: Award },

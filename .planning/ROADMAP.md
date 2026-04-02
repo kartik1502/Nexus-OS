@@ -2,13 +2,13 @@
 
 The project roadmap for building the NEXUS Personal OS, broken down into 7 logical phases.
 
-## Phase 1: Infrastructure & Scaffolding (Active)
+## Phase 1: Infrastructure & Scaffolding (Completed)
 
 Set up the core development environment and initial project structure.
-- **[ ]** Docker Compose configuration (Frontend, Backend, PostgreSQL).
-- **[ ]** Spring Boot 3 backend scaffold (pom.xml, initial entities).
-- **[ ]** flyway migrations for relational core.
-- **[ ]** Next.js 16+ frontend layout and shared components.
+- **[x]** Docker Compose configuration (Frontend, Backend, PostgreSQL).
+- **[x]** Spring Boot 3 backend scaffold (pom.xml, initial entities).
+- **[x]** flyway migrations for relational core.
+- **[x]** Next.js 16+ frontend layout and shared components.
 
 ## Phase 2: Auth & Security (Planned)
 

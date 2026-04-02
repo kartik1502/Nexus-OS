@@ -25,7 +25,7 @@ Detailed requirements for the NEXUS Personal OS, mapping to the 3 core modules a
 
 ## Documentation Manager (DOC)
 
-- **REQ-DOC-1:** Tiptap-based rich-text editor with Notion-like slash commands.
+- **REQ-DOC-1:** Tiptap-based rich-text editor with convenient slash commands.
 - **REQ-DOC-2:** Multi-format storage: JSONB (Rich-text) and Text (Markdown).
 - **REQ-DOC-3:** Collapsible tree-based navigation for topics/projects.
 - **REQ-DOC-4:** Full-text search over titles and content via PostgreSQL `tsvector`.

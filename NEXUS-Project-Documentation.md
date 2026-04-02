@@ -1,6 +1,8 @@
 # ✦ NEXUS Personal OS
 ## Project Architecture & Design Documentation
 
+**Eliminate subscription silos. Own your engineering productivity.**
+
 > *Full stack personal ecosystem for Issues, Documentation & Certification Management*
 
 **Version:** 1.0 &nbsp;|&nbsp; **Date:** March 25, 2026 &nbsp;|&nbsp; **Status:** In Progress &nbsp;|&nbsp; **Owner:** Personal Project
@@ -25,15 +27,15 @@
 
 ## 1. Project Overview
 
-NEXUS is a self-hosted, full-stack personal productivity ecosystem built to replace paid SaaS tools like Jira, Notion, and Confluence. It runs entirely on your own infrastructure — free forever — and combines three core modules into a single, unified application.
+NEXUS is a self-hosted, full-stack personal productivity ecosystem built to replace expensive subscription-based tools. It runs entirely on your own infrastructure — free forever — and combines three core modules into a single, unified application.
 
 ### 1.1 Motivation
 
 Most project management and documentation tools become expensive once multiple features are needed simultaneously:
 
-- **Jira** — free for 10 users but limited features
-- **Notion** — free tier restricts block count and collaboration
-- **Confluence** — paid per user per month
+- **Issue Trackers** — often limited in free tiers or feature-locked
+- **Documentation Tools** — restricted block counts or paid collaboration
+- **Relational Wikis** — high cost per user per month
 - **Cert tracking tools** — no good free option exists
 
 NEXUS eliminates all subscription costs by running entirely on self-hosted infrastructure, with full control over data and features.
@@ -42,8 +44,8 @@ NEXUS eliminates all subscription costs by running entirely on self-hosted infra
 
 | Module | Replaces | Key Features |
 |---|---|---|
-| Issues Tracker | Jira / Linear | Kanban board, list view, priorities, status workflows, tags |
-| Documentation Manager | Notion / Confluence | Rich text editor, markdown support, tree navigation, full-text search |
+| Issues Tracker | Issue Tracking Service | Kanban board, list view, priorities, status workflows, tags |
+| Documentation Manager | Documentation Management | Rich text editor, markdown support, tree navigation, full-text search |
 | Certification Manager | Custom / Manual | Issue & track certs, expiry countdowns, email alerts |
 
 ### 1.3 Design Principles
@@ -74,7 +76,7 @@ The stack was selected to balance developer familiarity, ecosystem maturity, and
 | Email / Alerts | Spring Mail + Gmail SMTP | Free cert expiry notifications via Gmail |
 | Scheduler | Spring @Scheduled | Daily cert expiry check — no extra service needed |
 | Deployment | Docker Compose | Single-file orchestration, runs anywhere |
-| Rich Text Editor | Tiptap (open source) | Notion-like editor with slash commands, markdown support |
+| Rich Text Editor | Tiptap (open source) | Comprehensive editor with slash commands, markdown support |
 
 ### 2.2 Why PostgreSQL over MongoDB
 
@@ -286,7 +288,7 @@ All endpoints are prefixed with `/api`. Authentication is via JWT Bearer token i
 
 ### 6.1 Rich Text Editor — Tiptap
 
-The documentation module uses Tiptap, a headless rich-text editor built on ProseMirror, providing a Notion-like editing experience:
+The documentation module uses Tiptap, a headless rich-text editor built on ProseMirror, providing a seamless editing experience:
 
 - **Slash commands** — type `/` to open a command menu (headings, lists, tables, code blocks, dividers, callouts)
 - **Markdown paste** — paste raw Markdown and it auto-converts to rich content
@@ -333,7 +335,7 @@ Full-text search is handled natively by PostgreSQL — no external search servic
 
 ### 6.5 UI Layout
 
-The documentation UI features a three-panel layout inspired by Notion and VS Code:
+The documentation UI features a three-panel layout inspired by modern productivity tools:
 
 - **Left sidebar** — collapsible project tree with expandable topic nodes, quick tag filter chips
 - **Main area** — card grid view with title, excerpt (3-line preview), tags, status badge, and last-edited timestamp
@@ -432,7 +434,7 @@ The application is packaged as three Docker containers and can be deployed on an
 
 ### 10.1 Design Language
 
-The application uses a dark, refined aesthetic inspired by Linear and VS Code:
+The application uses a dark, refined aesthetic:
 
 - **Dark background:** `#0A0C10` — deep near-black base
 - **Accent colour:** Indigo `#6366F1` — consistent brand colour across all modules
@@ -488,7 +490,7 @@ Confirmed: full-text search is available with zero extra infrastructure using Po
 
 ### Decision 4 — Rich Text Editor
 
-Tiptap was selected as the documentation editor because it provides: slash command menus identical to Notion, markdown paste-to-render via `@tiptap/extension-markdown`, drag-and-drop block reordering, syntax-highlighted code blocks, and content serialised as JSON for PostgreSQL JSONB storage. All features are free and open source.
+Tiptap was selected as the documentation editor because it provides: convenient slash command menus, markdown paste-to-render via `@tiptap/extension-markdown`, drag-and-drop block reordering, syntax-highlighted code blocks, and content serialised as JSON for PostgreSQL JSONB storage. All features are free and open source.
 
 ### Decision 5 — Markdown Input
 

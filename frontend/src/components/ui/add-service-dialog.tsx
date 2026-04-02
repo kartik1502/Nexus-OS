@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { createPortal } from "react-dom";
-import { X, Globe, GitBranch, Plus } from "lucide-react";
+import { X, Globe, FolderGit2, Plus } from "lucide-react";
 import { Button } from "./button";
 import { Input } from "./input";
 import { Label } from "./label";
@@ -59,7 +59,7 @@ export function AddServiceDialog({ isOpen, onClose, onAdd }: AddServiceDialogPro
           <div className="space-y-2">
             <Label htmlFor="service-name">Service Name</Label>
             <div className="relative">
-              <GitBranch className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
+              <FolderGit2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
               <Input 
                 id="service-name" 
                 placeholder="e.g. notification-service" 
@@ -73,12 +73,12 @@ export function AddServiceDialog({ isOpen, onClose, onAdd }: AddServiceDialogPro
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="service-url">GitHub Repository URL</Label>
+            <Label htmlFor="service-url">Repository URL</Label>
             <div className="relative">
               <Globe className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
               <Input 
                 id="service-url" 
-                placeholder="https://github.com/org/repo" 
+                placeholder="https://git.internal/org/repo" 
                 required 
                 className="pl-9"
                 value={url}

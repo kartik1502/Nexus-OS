@@ -366,8 +366,8 @@ export const mockCertifications: Certification[] = [
   },
   {
     id: "c6",
-    name: "GitHub Actions Certification",
-    issuer: "GitHub",
+    name: "Automated Workflows Certification",
+    issuer: "Cloud Service Provider",
     issuedDate: "2025-11-05",
     expiryDate: "2026-05-05",
     status: CertStatus.EXPIRING_SOON,
@@ -388,8 +388,8 @@ export const mockProjects: import("./types").Project[] = [
     description: "Core banking platform backend microservices. Handles user management, accounts, and transactions.",
     isMicroservice: true,
     repos: [
-      { id: "r1", name: "user-service", url: "https://github.com/arya-banking/user-service", analysisReport: null },
-      { id: "r2", name: "auth-service", url: "https://github.com/arya-banking/auth-service", analysisReport: null }
+      { id: "r1", name: "user-service", url: "https://git.internal/arya-banking/user-service", analysisReport: null },
+      { id: "r2", name: "auth-service", url: "https://git.internal/arya-banking/auth-service", analysisReport: null }
     ],
     analysisReport: null,
     createdAt: "2026-03-01T10:00:00Z",
@@ -401,7 +401,7 @@ export const mockProjects: import("./types").Project[] = [
     description: "Personal productivity ecosystem built with Next.js and Tailwind.",
     isMicroservice: false,
     repos: [
-      { id: "r3", name: "nexus-os-frontend", url: "https://github.com/nexus/nexus-os-frontend", analysisReport: null }
+      { id: "r3", name: "nexus-os-frontend", url: "https://git.internal/nexus/nexus-os-frontend", analysisReport: null }
     ],
     analysisReport: {
       healthScore: 9.2,

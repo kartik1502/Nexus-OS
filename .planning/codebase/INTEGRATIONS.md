@@ -16,7 +16,7 @@
 |---|---|---|
 | **PostgreSQL** | Primary Database | Persistent storage for all relational and JSON data. |
 | **Gmail SMTP** | Notifications | Automated email alerts for certification expiries. |
-| **Tiptap** | Editor | Headless rich-text editor for Notion-like documentation. |
+| **Tiptap** | Editor | Headless rich-text editor for documentation. |
 
 ## Future Integrations
 

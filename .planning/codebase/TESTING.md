@@ -20,4 +20,4 @@
 
 - **GSD Verification:** Use `/gsd-verify-work` for manual UAT.
 - **UI Audit:** Use the **UI-UX-Pro-Max** skill for layout and visual quality audits.
-- **Automated Checks:** Configure GitHub Actions for CI once tests are implemented.
+- **Automated Checks:** Configure CI/CD pipeline once tests are implemented.

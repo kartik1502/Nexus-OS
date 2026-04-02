@@ -232,7 +232,7 @@ export default function ProjectDetailsPage() {
                     className="flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-accent transition-colors bg-bg-primary px-2.5 py-1.5 rounded-md border border-border"
                   >
                     <GitBranch className="h-3.5 w-3.5" />
-                    {repo.name || repo.url.replace('https://github.com/', '')}
+                    {repo.name || repo.url.replace('https://git.internal/', '')}
                   </a>
                 ))}
               </div>

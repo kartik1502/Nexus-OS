@@ -1,6 +1,6 @@
 # ✦ NEXUS Personal OS: Project Context
 
-NEXUS is a self-hosted, full-stack personal productivity ecosystem designed to replace expensive SaaS tools like Jira, Notion, and Confluence. It provides a unified platform for issue tracking, documentation management, and certification tracking.
+NEXUS is a self-hosted, full-stack personal productivity ecosystem designed to replace expensive subscription-based tools. It provides a unified platform for issue tracking, documentation management, and certification tracking.
 
 ## Core Value
 
@@ -17,10 +17,10 @@ The project uses a standard three-tier architecture:
 ## Modules
 
 ### 1. Issues Tracker
-A Jira/Linear replacement with Kanban and list views, priorities, status workflows, and tag-based management.
+A high-performance issue tracker with Kanban and list views, priorities, status workflows, and tag-based management.
 
 ### 2. Documentation Manager
-A Notion/Confluence replacement featuring a Tiptap-based rich-text editor, slash commands, and split-pane markdown support.
+A comprehensive documentation manager featuring a Tiptap-based rich-text editor, slash commands, and split-pane markdown support.
 
 ### 3. Certification Manager
 A tool to track professional certifications with expiry countdowns, file uploads, and automated email alerts via Spring Scheduler + Gmail SMTP.

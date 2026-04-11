@@ -1,38 +1,32 @@
-# Codebase Structure: Nexus-OS
+# STRUCTURE.md - Nexus-OS Directory Structure & Key Locations
 
-## Directory Map
+## Project Root Layout
+- `backend/`: Java/Spring Boot source code and build files.
+- `frontend/`: TypeScript/Next.js source code and configuration.
+- `docs/`: (presumably) project-specific documentation.
+- `progressctx/`: Temporary directory for session history.
+- `.planning/`: GSD system documents, codebase maps, and phase plans.
+- `nginx.conf`: Root Nginx reverse proxy configuration.
+- `docker-compose.yml`: Orchestration for backend, frontend, and db services.
 
-```text
-nexus/
-├── .agent/                    ← GSD workflow skills and system settings
-├── .agents/                   ← Additional custom user skills
-├── .planning/                 ← GSD project state, roadmap, and codebase map
-├── docs/                      ← Project documentation and analysis reports
-├── frontend/                  ← Next.js 16.2.1 + TypeScript
-│   ├── .next/                 ← Next.js build artifacts
-│   ├── public/                ← Static assets (icons, fonts, images)
-│   ├── src/                   ← Application source code
-│   │   ├── app/               ← App Router routes ( (auth), (main) folders )
-│   │   ├── components/        ← Feature-based and UI components
-│   │   │   ├── certifications/ ← Cert-specific components
-│   │   │   ├── docs/          ← Documentation-specific components
-│   │   │   ├── issues/        ← Issues tracker components
-│   │   │   ├── layout/        ← Main app shell and navigation
-│   │   │   └── ui/            ← Base UI primitives (buttons, inputs)
-│   │   └── lib/               ← Shared utilities, hooks, constants
-│   ├── next-env.d.ts          ← Next.js TypeScript definitions
-│   ├── package.json           ← Project metadata and dependencies
-│   ├── postcss.config.mjs     ← PostCSS configuration (Tailwind v4)
-│   └── tsconfig.json          ← TypeScript configuration
-└── progressctx/               ← Project progress context logs
-```
+## Backend Structure (`backend/src/main/java/com/nexus/backend`)
+- `controller/`: REST API controllers (e.g., `AuthController.java`, `IssueController.java`).
+- `dto/`: Data Transfer Objects (e.g., `LoginRequest.java`).
+- `entity/`: Database JPA models (e.g., `Issue.java`, `User.java`, `Role.java`).
+- `repository/`: Spring Data JPA interfaces (e.g., `UserRepository.java`, `IssueRepository.java`).
+- `security/`: JWT and Spring Security configuration.
+- `service/`: Service interfaces and their implementations (`impl/`).
+- `BackendApplication.java`: Main application entry point.
 
-## Key Files & Purpose
+## Frontend Structure (`frontend/src`)
+- `app/`: Next.js App Router (using routes organized by groups: `(auth)`, `(dashboard)`, `(main)`).
+- `components/`: UI components organized by feature (e.g., `certifications`, `docs`, `issues`, `layout`, `ui`).
+- `lib/`: Shared utilities, API client, types, and constants.
+- `middleware.ts`: Next.js middleware for handling authentication and routing logic.
 
-| File / Folder | Purpose |
-|---|---|
-| `frontend/src/app/(main)/page.tsx` | Main dashboard entry point. |
-| `frontend/src/app/layout.tsx` | Global app layout (shared across all pages). |
-| `frontend/src/components/theme-provider.tsx` | Dark/light mode configuration provider. |
-| `NEXUS-Project-Documentation.md` | Core design document and architecture vision. |
-| `docker-compose.yml` (Planned) | Unified orchestration for frontend, backend, and DB. |
+## Resource & Configuration Locations
+- `backend/src/main/resources/application.yml`: Backend environment configuration.
+- `backend/src/main/resources/db/migration`: Flyway database migration scripts.
+- `frontend/package.json`: Frontend dependency list and scripts.
+- `frontend/next.config.ts`: Next.js specific configuration.
+- `frontend/src/app/globals.css`: Global styling and Tailwind directives.

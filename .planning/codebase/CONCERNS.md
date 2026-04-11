@@ -1,24 +1,19 @@
-# Codebase Concerns: Nexus-OS
+# CONCERNS.md - Nexus-OS Technical Debt & Areas of Concern
 
-## Tech Debt & Challenges
+## High Priority Concerns
+- **Missing Automated Tests**: The codebase currently lacks any automated tests (unit, integration, or E2E). This poses a significant risk for regressions and makes refactoring difficult.
+- **Security Risks**:
+  - **Sensitive Data in Logs**: As identified in previous audits (`docs/arya-banking-analysis-report.md`), there's a risk of leaking plain-text passwords or sensitive tokens in debug logs if not carefully managed.
+  - **Hardcoded Secrets**: The `application.yml` and `docker-compose.yml` contain default secrets (`very_secret_key_change_me_in_production`) which must be replaced with secure environment variables in production.
+- **Error Handling**: API error handling is currently basic (returning 400 or 404 without descriptive error bodies). A global exception handler is missing in the backend.
 
-| Concern | Impact | Action |
-|---|---|---|
-| **Missing Backend** | Broken app flows | Implement the Java/Spring Boot API. |
-| **Next.js 16/React 19** | Latest-version stability | Monitor for potential breaking changes. |
-| **Tailwind CSS 4.x** | New configuration pattern | Ensure proper setup with PostCSS. |
-| **Auth** | Security | Implement Spring Security + JWT before production. |
-| **Mobile UX** | User Experience | Regular audits using the `gsd-ui-review` workflow. |
+## Medium Priority Concerns
+- **Incomplete Feature Implementation**: The current backend only supports authentication and issue tracking. Other planned features (projects, documents, certifications) appear to be skeletal or missing from the backend.
+- **Frontend Mock Data**: Several frontend pages and components still rely on `mock-data.ts` rather than fetching real data from the backend API.
+- **Logging Infrastructure**: Logging is inconsistent across the backend. Controllers lack entry/exit logging, and there's no centralized logging strategy for the frontend.
+- **Input Validation**: While `@Valid` is used in some places, comprehensive input validation and sanitization are needed across all API endpoints.
 
-## Technical Decisions (Under Discussion)
-
-1. **Database:** PostgreSQL for relational data with JSONB for Tiptap docs.
-2. **Editor:** Tiptap selected for rich text and slash command experience.
-3. **Deployment:** Local Docker Compose vs. Oracle Cloud Free VM.
-4. **Search:** PostgreSQL `tsvector` and `pg_trgm` vs. external Meilisearch.
-
-## Scalability Concerns
-
-- **File Storage:** Local disk is simple but might need MinIO for large-scale uploads.
-- **Search:** Postgres handles thousands of docs, but Meilisearch/Elasticsearch might be needed for millions.
-- **Session Management:** JWT is stateless but may need Redis for token blacklisting.
+## Technical Debt
+- **Skeletal Classes**: Some classes and packages exist but contain minimal or no implementation, leading to "dead" code.
+- **Dependency Versions**: Some dependencies (especially in the frontend) are on major versions that may require updates for long-term support and security.
+- **Documentation**: Codebase documentation is currently limited to high-level reports. Inline Javadoc/TSDoc is needed for complex logic.

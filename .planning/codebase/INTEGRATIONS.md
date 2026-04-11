@@ -1,25 +1,32 @@
-# Codebase Integrations: Nexus-OS
+# INTEGRATIONS.md - Nexus-OS External Services & APIs
 
-## Primary Integrations
+## Core System Integrations
+- **PostgreSQL Database**:
+  - **Role**: Primary data store for users, projects, and system data.
+  - **Connection**: `jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:nexus}`.
+  - **Management**: Flyway (automatic migrations on startup).
+- **SMTP Server (Gmail)**:
+  - **Role**: Sending system notifications, password resets, etc.
+  - **Host**: `smtp.gmail.com` (Port 587).
+  - **Authentication**: `GMAIL_USER` and `GMAIL_APP_PASSWORD`.
+  - **Properties**: TLS/SSL enabled via `spring.mail.properties.mail.smtp.starttls.enable`.
 
-| Integration | Library / Service | Purpose |
-|---|---|---|
-| **Iconography** | `lucide-react` | Unified SVG icon set for UI. |
-| **Theming** | `next-themes` | Dark and light mode switching and persistence. |
-| **Markdown Rendering** | `react-markdown` / `remark-gfm` | Rendering GFM-compliant markdown in Docs module. |
-| **Date/Time** | `date-fns` | date manipulation and formatting. |
-| **Classes** | `clsx` / `tailwind-merge` | Dynamic class merging and conflict resolution. |
+## Authentication & Security
+- **JWT (JSON Web Tokens)**:
+  - **Provider**: jjwt-api (io.jsonwebtoken).
+  - **Purpose**: Stateless authentication for API endpoints.
+  - **Config**: `JWT_SECRET` and `JWT_EXPIRY_MS`.
+- **Spring Security**:
+  - **Role**: RBAC (Role-Based Access Control) and security filter chain.
 
-## External Services (Planned)
+## Storage
+- **Local File System**:
+  - **Location**: `${UPLOAD_DIR:/uploads}`.
+  - **Usage**: Storing user-uploaded documents and profile assets.
 
-| Service | Category | Use Case |
-|---|---|---|
-| **PostgreSQL** | Primary Database | Persistent storage for all relational and JSON data. |
-| **Gmail SMTP** | Notifications | Automated email alerts for certification expiries. |
-| **Tiptap** | Editor | Headless rich-text editor for documentation. |
-
-## Future Integrations
-
-- **Cloudflare Tunnel:** Exposing local Docker deployment safely to the web.
-- **Oracle Cloud Free Tier VM:** Target deployment platform for 24/7 uptime.
-- **MinIO (Optional):** If local file storage needs scaling to object storage.
+## Networking
+- **Nginx Proxy**:
+  - **Role**: Reverse proxy for frontend and backend, handling routing and SSL (if configured).
+  - **Config**: Root `nginx.conf` and `docker-compose.yml`.
+- **Docker Networking**:
+  - **Role**: Internal communication between `backend`, `frontend`, and `db` services.
